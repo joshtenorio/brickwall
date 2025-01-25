@@ -17,7 +17,7 @@ interface Message {
   timestamp: number;
   text: string;
   file?: File;
-  channelId: number;
+  chatId: number;
 }
 
 export default function ChatWindow() {
@@ -33,7 +33,7 @@ export default function ChatWindow() {
         timestamp: Date.now(),
         text: inputMessage,
         file: file || undefined,
-        channelId: 0,
+        chatId: 0,
       };
       setMessages([...messages, newMessage]);
       setInputMessage("");

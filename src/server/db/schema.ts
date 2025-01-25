@@ -28,3 +28,17 @@ export const posts = createTable(
     nameIndex: index("name_idx").on(example.name),
   })
 );
+
+/*
+export const messages = createTable(
+  "message",
+  {
+    id: int("id", { mode: "number" }).primaryKey({ autoIncrement: true }),
+    chatid: int("chatid"),
+    timestamp: int("timestamp", { mode: "number" }).notNull(),
+    text: text("text").default(""),
+    s3Key: text("s3key").default(""), // sha hash or whatever idk
+    filename: text("filename").default("") // TODO might not be necessary
+  }
+)
+*/
