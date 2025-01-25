@@ -2,7 +2,8 @@
 A self-hosted service to send yourself messages and files
 ## Self Hosting
 ### Coolify
-TODO
+1. create a volume
+2. set env var for database
 # Create T3 App
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
