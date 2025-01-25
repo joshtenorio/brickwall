@@ -32,7 +32,7 @@ export default function ChatWindow() {
         id: Date.now(),
         timestamp: Date.now(),
         text: inputMessage,
-        file: file || undefined,
+        file: file ?? undefined,
         chatId: 0,
       };
       setMessages([...messages, newMessage]);
