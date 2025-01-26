@@ -20,4 +20,5 @@ jobs:
     - name: Install dependencies
       run: pnpm install
     - name: Build
+      env: DATABASE_URL: "gh.sqlite"
       run: pnpm build
