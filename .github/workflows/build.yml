@@ -22,6 +22,4 @@ jobs:
     - name: Build
       env:
         DATABASE_URL: "file:gh.sqlite"
-      run: pnpm db:generate
-      run: pnpm db:push
       run: pnpm build
