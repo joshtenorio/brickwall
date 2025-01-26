@@ -29,11 +29,17 @@ export const posts = createTable(
   })
 );
 
-/*
+export const chats = createTable(
+  "chat",
+  {
+    id: int("chatid", { mode: "number" }).primaryKey({ autoIncrement: true }),
+  }
+)
+
 export const messages = createTable(
   "message",
   {
-    id: int("id", { mode: "number" }).primaryKey({ autoIncrement: true }),
+    id: int("messageid", { mode: "number" }).primaryKey({ autoIncrement: true }),
     chatid: int("chatid"),
     timestamp: int("timestamp", { mode: "number" }).notNull(),
     text: text("text").default(""),
@@ -41,4 +47,3 @@ export const messages = createTable(
     filename: text("filename").default("") // TODO might not be necessary
   }
 )
-*/
