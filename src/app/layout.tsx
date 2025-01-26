@@ -5,6 +5,7 @@ import { type Metadata } from "next";
 import { ThemeProvider } from "~/components/theme-provider";
 import { SidebarProvider, SidebarTrigger } from "~/components/ui/sidebar";
 import { AppSidebar } from "~/components/app-sidebar";
+import { useIsMobile } from "~/hooks/use-mobile";
 
 export const metadata: Metadata = {
   title: "brickwall",
@@ -27,7 +28,7 @@ export default function RootLayout({
         <SidebarProvider defaultOpen>
           <AppSidebar />
           <main className="w-screen">
-            <SidebarTrigger />
+            <SidebarTrigger className="" />
           {children}
           </main>
         </SidebarProvider>

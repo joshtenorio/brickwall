@@ -54,7 +54,7 @@ export default function ChatWindow() {
   };
 
   return (
-    <div className="mx-auto flex h-[600px] w-full max-w-md flex-col overflow-hidden rounded-lg border bg-background">
+    <div className="mx-auto flex h-[600px] w-full flex-col overflow-hidden rounded-lg border bg-background">
       <TooltipProvider>
         <ScrollArea className="flex-grow p-4">
           {messages.map((message) => (

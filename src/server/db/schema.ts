@@ -3,6 +3,7 @@
 
 import { sql } from "drizzle-orm";
 import { index, int, sqliteTableCreator, text } from "drizzle-orm/sqlite-core";
+import { boolean } from "zod";
 
 /**
  * This is an example of how to use the multi-project schema feature of Drizzle ORM. Use the same
@@ -33,6 +34,8 @@ export const chats = createTable(
   "chat",
   {
     id: int("chatid", { mode: "number" }).primaryKey({ autoIncrement: true }),
+    title: text("title").default("Untitled chat"),
+    pin: int("pin", {mode: "boolean"}).default(false)
   }
 )
 
