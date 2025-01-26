@@ -28,8 +28,8 @@ export async function renameChat(formData: FormData) {
 export async function deleteChat(formData: FormData) {
     // delete messages and files
 }
+*/
 
 export async function createMessage(formData: FormData) {
     console.log(formData)
 }
-*/
