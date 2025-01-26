@@ -5,7 +5,6 @@ import { type Metadata } from "next";
 import { ThemeProvider } from "~/components/theme-provider";
 import { SidebarProvider, SidebarTrigger } from "~/components/ui/sidebar";
 import { AppSidebar } from "~/components/app-sidebar";
-import { useIsMobile } from "~/hooks/use-mobile";
 
 export const metadata: Metadata = {
   title: "brickwall",

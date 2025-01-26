@@ -46,9 +46,9 @@ export function AppSidebar() {
           <SidebarGroup>
             <SidebarGroupLabel>Chats</SidebarGroupLabel>
             <SidebarGroupContent>
-              {/*<Suspense fallback={<NavChatsSkeleton />}>*/}
+              <Suspense fallback={<NavChatsSkeleton />}>
                 <NavChats />
-              {/*</Suspense>*/}
+              </Suspense>
             </SidebarGroupContent>
           </SidebarGroup>
         </SidebarContent>
