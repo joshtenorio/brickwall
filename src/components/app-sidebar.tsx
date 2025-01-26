@@ -9,6 +9,7 @@ function NavChatsSkeleton() {
     <SidebarMenu>
       {Array.from({ length: 5 }).map((_, index) => (
         <SidebarMenuItem key={index}>
+          <div>asdf</div>
           <SidebarMenuSkeleton showIcon />
         </SidebarMenuItem>
       ))}
