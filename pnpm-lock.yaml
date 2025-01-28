@@ -50,6 +50,9 @@ dependencies:
   next-themes:
     specifier: ^0.4.4
     version: 0.4.4(react-dom@18.3.1)(react@18.3.1)
+  next-ws:
+    specifier: ^1.2.0
+    version: 1.2.0(next@15.1.6)(react@18.3.1)(ws@8.18.0)
   react:
     specifier: ^18.3.1
     version: 18.3.1
@@ -62,6 +65,9 @@ dependencies:
   tailwindcss-animate:
     specifier: ^1.0.7
     version: 1.0.7(tailwindcss@3.4.17)
+  ws:
+    specifier: ^8.18.0
+    version: 8.18.0
   zod:
     specifier: ^3.23.3
     version: 3.24.1
@@ -79,6 +85,9 @@ devDependencies:
   '@types/react-dom':
     specifier: ^18.3.0
     version: 18.3.5(@types/react@18.3.18)
+  '@types/ws':
+    specifier: ^8.5.14
+    version: 8.5.14
   '@typescript-eslint/eslint-plugin':
     specifier: ^8.1.0
     version: 8.21.0(@typescript-eslint/parser@8.21.0)(eslint@8.57.1)(typescript@5.7.3)
@@ -1738,7 +1747,6 @@ packages:
     resolution: {integrity: sha512-bd/YFLW+URhBzMXurx7lWByOu+xzU9+kb3RboOteXYDfW+tr+JZa99OyNmPINEGB/ahzKrEuc8rcv4gnpJmxTw==}
     dependencies:
       '@types/node': 20.17.16
-    dev: false
 
   /@typescript-eslint/eslint-plugin@8.21.0(@typescript-eslint/parser@8.21.0)(eslint@8.57.1)(typescript@5.7.3):
     resolution: {integrity: sha512-eTH+UOR4I7WbdQnG4Z48ebIA6Bgi7WO8HvFEneeYBxG8qCOYgTOFPSg6ek9ITIDvGjDQzWHcoWHCDO2biByNzA==}
@@ -3693,6 +3701,18 @@ packages:
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
+    dev: false
+
+  /next-ws@1.2.0(next@15.1.6)(react@18.3.1)(ws@8.18.0):
+    resolution: {integrity: sha512-cDyMZ4GxpRe3NrZ8fGIet7Q8IcXfU5PUZdYXVlvj9hQqiJlZsby98G8S++icOUfDuEAVyPSwy4de0tFmKBPL9w==}
+    peerDependencies:
+      next: '>=13.1.1'
+      react: '*'
+      ws: '*'
+    dependencies:
+      next: 15.1.6(react-dom@18.3.1)(react@18.3.1)
+      react: 18.3.1
+      ws: 8.18.0
     dev: false
 
   /next@15.1.6(react-dom@18.3.1)(react@18.3.1):

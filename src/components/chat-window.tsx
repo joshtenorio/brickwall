@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
 import { ScrollArea } from "~/components/ui/scroll-area";
@@ -11,30 +11,46 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "./ui/tooltip";
+import { useWebSocket } from 'next-ws/client';
+import { ChatMessage, Message } from "~/app/api/socket/route";
 
-interface Message {
-  id: number;
-  timestamp: number;
-  text: string;
-  file?: File;
-  chatId: number;
-}
+
 
 export default function ChatWindow() {
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [inputMessage, setInputMessage] = useState("");
   const [file, setFile] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const ws = useWebSocket();
+
+  useEffect(() => {
+    async function onMessage(event: MessageEvent) {
+      //const payload = typeof event.data === 'string' ? event.data : await event.data.text();
+      const payload = event.data
+      const message: ChatMessage = JSON.parse(payload);
+      setMessages((p) => [... p, message])
+      console.log("received message")
+    }
+
+    ws?.addEventListener('message', onMessage);
+    return () => ws?.removeEventListener('message', onMessage);
+  }, [ws]);
 
   const handleSendMessage = () => {
-    if (inputMessage.trim() || file) {
-      const newMessage: Message = {
+    if (inputMessage.trim() || file && ws) {
+      const newMessage: ChatMessage = {
         id: Date.now(),
         timestamp: Date.now(),
         text: inputMessage,
         file: file ?? undefined,
         chatId: 0,
       };
+      const wsMessage: Message = {
+        type: "send",
+        data: newMessage
+      }
+
+      ws?.send(JSON.stringify(wsMessage))
       setMessages([...messages, newMessage]);
       setInputMessage("");
       if (file == null) {
