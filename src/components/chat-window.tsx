@@ -15,8 +15,11 @@ import { useWebSocket } from 'next-ws/client';
 import { ChatMessage, Message } from "~/app/api/socket/route";
 
 
+interface ChatWindowProps {
+  chatId: number
+}
 
-export default function ChatWindow() {
+export default function ChatWindow(props: ChatWindowProps) {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [inputMessage, setInputMessage] = useState("");
   const [file, setFile] = useState<File | null>(null);
@@ -28,8 +31,10 @@ export default function ChatWindow() {
       //const payload = typeof event.data === 'string' ? event.data : await event.data.text();
       const payload = event.data
       const message: ChatMessage = JSON.parse(payload);
-      setMessages((p) => [... p, message])
-      console.log("received message")
+      if(message.chatId == props.chatId) {
+        setMessages((p) => [... p, message])
+        console.log("received message")
+      }
     }
 
     ws?.addEventListener('message', onMessage);
@@ -43,7 +48,7 @@ export default function ChatWindow() {
         timestamp: Date.now(),
         text: inputMessage,
         file: file ?? undefined,
-        chatId: 0,
+        chatId: props.chatId,
       };
       const wsMessage: Message = {
         type: "send",
