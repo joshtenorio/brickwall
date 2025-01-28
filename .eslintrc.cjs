@@ -20,6 +20,7 @@ const config = {
     "@typescript-eslint/no-unsafe-member-access": "warn",
     "@typescript-eslint/array-type": "off",
     "@typescript-eslint/consistent-type-definitions": "off",
+    "@typescript-eslint/no-unsafe-argument": "warn",
     "@typescript-eslint/consistent-type-imports": [
       "warn",
       {
