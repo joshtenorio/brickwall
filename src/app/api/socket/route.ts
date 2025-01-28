@@ -44,9 +44,11 @@ function createHelpers(
             const cart: Message = JSON.parse(payload.toString());
             console.log(cart)
             if(cart.type == "request") {
-                // TODO
+                // TODO return message data
             }
             else {
+                // TODO save message to db
+                // TODO save file locally if it exists
                 console.log("broadcast!")
                 console.log(cart.data)
                 for (const other of server.clients)

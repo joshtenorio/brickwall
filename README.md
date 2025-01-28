@@ -1,9 +1,26 @@
 # brickwall
 A self-hosted service to send yourself messages and files
+## TODO
+- save message to db
+- save files to db + `data/`
+- retrieve messages on connection
+- render images on client
+- render videos on client
 ## Self Hosting
+brickwall makes use of [next-ws](https://github.com/apteryxxyz/next-ws) - this means that you can't run brickwall on a serverless platform, as it is meant to run in server-based environments.
 ### Coolify
-1. create a volume
-2. set env var for database
+1. create a volume to `/app/data/`
+2. set env vars `DATABASE_URL` and `NEXT_PUBLIC_WS_ENDPOINT` - the former should be something like `file:./data/db.sqlite` and the latter will be
+`ws://{your_domain}/api/socket` where `{your_domain}` is the domain for the server you are hosting brickwall on, or if you don't have a domain then
+it should be the IP address and port.
+## Development
+### Prerequisites
+- `pnpm`
+```bash
+pnpm install
+npx next-ws-cli@latest patch # apply patch for nextjs
+pnpm dev
+```
 ## License
 MIT
 # Create T3 App
