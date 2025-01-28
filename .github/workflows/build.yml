@@ -1,4 +1,4 @@
-name: pnpm Example Workflow
+name: build brickwall
 on:
   push:
 
@@ -19,8 +19,6 @@ jobs:
         cache: 'pnpm'
     - name: Install dependencies
       run: pnpm install
-    - name: Patch nextjs
-      run: npx next-ws-cli@latest patch 
     - name: Build
       env:
         DATABASE_URL: "file:gh.sqlite"
